@@ -110,8 +110,8 @@ def find_outliers_iqr(df, col):
     Q1 = df[col].quantile(0.25)  # Calculăm Q1
     Q3 = df[col].quantile(0.75)  # Calculăm Q3
     IQR = Q3 - Q1  # Intervalul intercuartilic
-    lower_bound = Q1 - 1.5 * IQR  # Limita inferioară
-    upper_bound = Q3 + 1.5 * IQR  # Limita superioară
+    lower_bound = max(Q1 - 1.5 * IQR, 0) # Limita inferioară
+    upper_bound = max(Q3 + 1.5 * IQR, 0) # Limita superioară
     outliers_df = df[(df[col] < lower_bound) | (df[col] > upper_bound)]  # Selectăm outlierii
     return lower_bound, upper_bound, outliers_df
 
