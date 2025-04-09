@@ -191,3 +191,5 @@ Aceste metode de codificare sunt esențiale pentru transformarea datelor categor
 - **Frequency Encoding** ajută la capturarea relevanței categoriilor în baza frecvenței lor de apariție.
 - **Label Encoding** păstrează relațiile ordinale între variabilele care au o ierarhie naturală (cum ar fi `key` și `mode`).
 """)
+
+#fara old main
