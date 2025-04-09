@@ -194,4 +194,4 @@ Aceste metode de codificare sunt esențiale pentru transformarea datelor categor
 
 #fara old main
 #commit nou
-#comit norocos
+#comit norocos- v2
