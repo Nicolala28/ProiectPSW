@@ -1,11 +1,20 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import io
 
 st.title("Tratarea valorilor lipsă și a outlierilor")
 
 df = pd.read_csv("data/spotify-2023-updated.csv", encoding="ISO-8859-1")
 df.columns = df.columns.str.strip()
+
+# Folosim st.write pentru a afișa df.info()
+st.write("Info despre DataFrame:")
+buffer = io.StringIO()
+df.info(buf=buffer)
+info_str = buffer.getvalue()
+st.text("ℹ️ Info despre DataFrame:")
+st.text(info_str)
 
 # Codul tău cu tratarea NA + outlieri
 st.subheader("Tratarea valorilor lipsă")
