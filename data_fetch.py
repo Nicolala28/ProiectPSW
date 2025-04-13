@@ -62,3 +62,31 @@ df = df.drop(columns=['country'])
 df.to_csv("data/spotify-2023-updated.csv", index=False)
 
 print("Ultima coloană 'country' a fost ștearsă și fișierul a fost salvat!")
+
+# df = pd.read_csv("data/data_cleaned_spotify.csv", encoding="ISO-8859-1")
+#
+# # === 1. Artiști solo (fără colaborări) ===
+# solo_df = df[df['artist_count'] == 1].copy()
+# solo_artists = solo_df['artist(s)_name'].str.strip()
+# solo_freq = solo_artists.value_counts()
+#
+# # === 2. Artiști din colaborări ===
+# multi_artist_df = df[df['artist_count'] > 1].copy()
+# multi_artist_df['artist_list'] = multi_artist_df['artist(s)_name'].str.split(',')
+# all_collab_artists = [artist.strip() for sublist in multi_artist_df['artist_list'] for artist in sublist]
+# collab_freq = pd.Series(all_collab_artists).value_counts()
+#
+# # === 3. Combinăm frecvențele ===
+# combined_freq = solo_freq.add(collab_freq, fill_value=0).astype(int)
+#
+# # === 4. Creăm DataFrame final cu numele și frecvența ===
+# artist_freq_df = pd.DataFrame({
+#     'artist_name': combined_freq.index,
+#     'artist_total_count': combined_freq.values
+# })
+#
+# # === 5. Salvăm rezultatul într-un CSV ===
+# artist_freq_df.to_csv("data/artists_data.csv", index=False)
+#
+# print("Fișierul complet cu frecvența tuturor artiștilor (solo + colaborări) a fost salvat.")
+
