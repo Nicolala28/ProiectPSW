@@ -108,4 +108,6 @@ plt.xlabel('Frecvența Encodată')
 plt.ylabel('Număr de Instanțe')
 st.pyplot(plt)
 
+#ama daugat fisierele noi in github
+
 df.to_csv("data/data_with_encoding.csv", index=False)
